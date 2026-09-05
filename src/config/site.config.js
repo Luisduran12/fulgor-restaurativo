@@ -17,13 +17,6 @@ export const SITE = {
     registryDate: 'mayo 2026',
     nature: 'Entidad sin ánimo de lucro',
   },
-  /**
-   * public_id de Cloudinary del logo oficial. Mientras sea null, el Navbar
-   * y el Footer usan el wordmark de texto + punto ámbar. Se llena subiendo
-   * el logo con scripts/upload-fotos-fulgor.js (prefijo `logo-`) y copiando
-   * el public_id desde scripts/resultado-subida.json.
-   */
-  logo: 'fulgor-restaurativo/logo/logo-fulgor',
 }
 
 export const CONTACT = {
