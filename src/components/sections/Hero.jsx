@@ -2,16 +2,20 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { ROUTES } from '../../config/routes.config'
 import { SITE } from '../../config/site.config'
-import { resolveImageSrc } from '../../services/cloudinary/buildImageUrl'
+import { CLOUDINARY_BASE_URL } from '../../services/cloudinary/cloudinaryClient'
 import Button from '../ui/Button'
 
-/** public_id de Cloudinary del banner del hero (prefijo `banner-` en fotos-fulgor/). */
-const HERO_IMAGE = 'fulgor-restaurativo/banners/banner-hero'
+/**
+ * Emblema del Hero: el mismo logo oficial, pero con `e_background_removal`
+ * (add-on de IA de Cloudinary, verificado en esta cuenta) para quitar el
+ * fondo blanco cuadrado del PNG y dejar solo la figura, en PNG con alpha real.
+ */
+const HERO_EMBLEM_URL = `${CLOUDINARY_BASE_URL}/e_background_removal,f_png,q_auto,w_900/fulgor-restaurativo/logo/logo-fulgor`
 
 /** Sección hero con foto real, overlay oscuro para contraste y halo ámbar de marca. */
 function Hero() {
   const prefersReducedMotion = useReducedMotion()
-  const heroImageSrc = resolveImageSrc(HERO_IMAGE, { width: 1920 })
+  const heroImageSrc = HERO_EMBLEM_URL
 
   return (
     <section
@@ -21,8 +25,8 @@ function Hero() {
       }}
     >
       {heroImageSrc && (
-        // Emblema de marca en la esquina derecha, centrado verticalmente,
-        // como watermark de baja opacidad detrás del texto.
+        // Emblema de marca centrado en el hero, como watermark de baja
+        // opacidad detrás del texto (sin fondo blanco, gracias a e_background_removal).
         <img
           src={heroImageSrc}
           alt=""
@@ -30,9 +34,9 @@ function Hero() {
           className="object-contain"
           style={{
             position: 'absolute',
-            right: 0,
             top: '50%',
-            transform: 'translateY(-50%)',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             width: '600px',
             height: '600px',
             opacity: 0.15,
