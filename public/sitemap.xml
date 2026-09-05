@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TODO: reemplazar https://TU-DOMINIO-VERCEL.vercel.app por el dominio real
+  una vez publicado (Fase 12), o regenerar este archivo automáticamente.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/</loc><priority>1.0</priority></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/nosotros</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/mision-y-vision</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/que-hacemos</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/programas</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/impacto</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/galeria</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/noticias</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/alianzas</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/transparencia</loc></url>
+  <url><loc>https://TU-DOMINIO-VERCEL.vercel.app/contacto</loc></url>
+</urlset>

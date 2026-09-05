@@ -1,0 +1,149 @@
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { ROUTES, NAV_LINKS } from '../../config/routes.config'
+import { SITE } from '../../config/site.config'
+import Button from '../ui/Button'
+import SocialLinks from '../ui/SocialLinks'
+
+const NAV_LINK_CLASSES = ({ isActive }) =>
+  `text-sm font-medium transition-colors duration-150 ${
+    isActive ? 'text-primary-700' : 'text-text-muted hover:text-primary-700'
+  }`
+
+function Logo() {
+  return (
+    <NavLink to={ROUTES.home.path} className="flex items-center gap-2 shrink-0" end>
+      <span
+        className="h-3 w-3 rounded-full bg-accent-500"
+        style={{ boxShadow: '0 0 12px 2px rgba(242,168,59,0.6)' }}
+        aria-hidden="true"
+      />
+      <span className="font-display text-lg leading-tight text-primary-900">
+        Fundación ONG
+        <br />
+        <span className="text-primary-500">{SITE.shortName}</span>
+      </span>
+    </NavLink>
+  )
+}
+
+/** Encabezado sticky: se compacta y gana sombra al hacer scroll. */
+function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
+
+  useEffect(() => {
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 12)
+    }
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!isMenuOpen) return undefined
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') setIsMenuOpen(false)
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
+
+  return (
+    <header
+      className={`sticky top-0 z-40 bg-surface/95 backdrop-blur transition-shadow duration-250 ${
+        isScrolled ? 'shadow-md' : ''
+      }`}
+    >
+      <div
+        className={`max-w-[var(--fulgor-container-max)] mx-auto flex items-center justify-between px-6 transition-[padding] duration-250 ${
+          isScrolled ? 'py-2' : 'py-4'
+        }`}
+      >
+        <Logo />
+
+        <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-6">
+          {NAV_LINKS.map((route) => (
+            <NavLink
+              key={route.path}
+              to={route.path}
+              end={route.path === '/'}
+              className={NAV_LINK_CLASSES}
+            >
+              {route.label}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="hidden lg:flex items-center gap-4">
+          <SocialLinks className="text-text-muted" />
+          <Button to={ROUTES.contacto.path} variant="accent" size="sm">
+            Contáctanos
+          </Button>
+        </div>
+
+        <button
+          type="button"
+          className="lg:hidden p-2 text-primary-900"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.nav
+            id="mobile-menu"
+            aria-label="Navegación móvil"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.25 }}
+            className="lg:hidden overflow-hidden border-t border-border bg-surface"
+          >
+            <div className="flex flex-col gap-1 px-6 py-4">
+              {NAV_LINKS.map((route) => (
+                <NavLink
+                  key={route.path}
+                  to={route.path}
+                  end={route.path === '/'}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `rounded-md px-3 py-2.5 text-base font-medium transition-colors ${
+                      isActive
+                        ? 'bg-primary-50 text-primary-700'
+                        : 'text-text-muted hover:bg-bg-alt'
+                    }`
+                  }
+                >
+                  {route.label}
+                </NavLink>
+              ))}
+              <div className="flex items-center justify-between px-3 pt-4">
+                <SocialLinks className="text-text-muted" />
+                <Button
+                  to={ROUTES.contacto.path}
+                  variant="accent"
+                  size="sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contáctanos
+                </Button>
+              </div>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
+  )
+}
+
+export default Navbar

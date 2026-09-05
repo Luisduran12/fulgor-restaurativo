@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/**
+ * Adaptador Tailwind v4: mapea los tokens de marca (--fulgor-*, definidos en
+ * tokens.css) al namespace @theme para generar utilidades (bg-primary-500,
+ * text-display, rounded-lg, shadow-hover, etc). No duplica valores.
+ */
+@theme inline {
+  --color-primary-50:  var(--fulgor-primary-50);
+  --color-primary-100: var(--fulgor-primary-100);
+  --color-primary-200: var(--fulgor-primary-200);
+  --color-primary-300: var(--fulgor-primary-300);
+  --color-primary-400: var(--fulgor-primary-400);
+  --color-primary-500: var(--fulgor-primary-500);
+  --color-primary-600: var(--fulgor-primary-600);
+  --color-primary-700: var(--fulgor-primary-700);
+  --color-primary-800: var(--fulgor-primary-800);
+  --color-primary-900: var(--fulgor-primary-900);
+
+  --color-accent-100: var(--fulgor-accent-100);
+  --color-accent-300: var(--fulgor-accent-300);
+  --color-accent-400: var(--fulgor-accent-400);
+  --color-accent-500: var(--fulgor-accent-500);
+  --color-accent-600: var(--fulgor-accent-600);
+
+  --color-bg:         var(--fulgor-bg);
+  --color-bg-alt:      var(--fulgor-bg-alt);
+  --color-surface:    var(--fulgor-surface);
+  --color-text:       var(--fulgor-text);
+  --color-text-muted: var(--fulgor-text-muted);
+  --color-border:     var(--fulgor-border);
+
+  --color-success: var(--fulgor-success);
+  --color-error:   var(--fulgor-error);
+  --color-info:    var(--fulgor-info);
+  --color-warning: var(--fulgor-warning);
+
+  --font-display: var(--fulgor-font-display);
+  --font-body:    var(--fulgor-font-body);
+
+  --text-xs:  var(--fulgor-text-xs);
+  --text-sm:  var(--fulgor-text-sm);
+  --text-base: var(--fulgor-text-base);
+  --text-lg:  var(--fulgor-text-lg);
+  --text-xl:  var(--fulgor-text-xl);
+  --text-2xl: var(--fulgor-text-2xl);
+  --text-3xl: var(--fulgor-text-3xl);
+  --text-4xl: var(--fulgor-text-4xl);
+  --text-5xl: var(--fulgor-text-5xl);
+
+  --spacing-1:  var(--fulgor-space-1);
+  --spacing-2:  var(--fulgor-space-2);
+  --spacing-3:  var(--fulgor-space-3);
+  --spacing-4:  var(--fulgor-space-4);
+  --spacing-6:  var(--fulgor-space-6);
+  --spacing-8:  var(--fulgor-space-8);
+  --spacing-12: var(--fulgor-space-12);
+  --spacing-16: var(--fulgor-space-16);
+  --spacing-24: var(--fulgor-space-24);
+  --spacing-32: var(--fulgor-space-32);
+
+  --radius-sm: var(--fulgor-radius-sm);
+  --radius-md: var(--fulgor-radius-md);
+  --radius-lg: var(--fulgor-radius-lg);
+  --radius-full: var(--fulgor-radius-full);
+
+  --shadow-sm: var(--fulgor-shadow-sm);
+  --shadow-md: var(--fulgor-shadow-md);
+  --shadow-hover: var(--fulgor-shadow-hover);
+
+  --container-max: var(--fulgor-container-max);
+}

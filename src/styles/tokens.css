@@ -1,0 +1,96 @@
+/**
+ * Tokens de marca — Fundación ONG Fulgor Restaurativo
+ * Fuente única de verdad para color, tipografía, espaciado y sombras.
+ * Editar SOLO aquí; nunca hardcodear valores sueltos en componentes.
+ * Prefijo `--fulgor-*` para no colisionar con el namespace @theme de Tailwind
+ * (que se mapea desde aquí en tailwind.css).
+ */
+
+:root {
+  /* ---- Color primario: Verde restaurativo ---- */
+  --fulgor-primary-50:  #EAF5F0;
+  --fulgor-primary-100: #D2E9DF;
+  --fulgor-primary-200: #A6D3BF;
+  --fulgor-primary-300: #79BC9F;
+  --fulgor-primary-400: #4D9F7F;
+  --fulgor-primary-500: #1B7A5A;
+  --fulgor-primary-600: #166849;
+  --fulgor-primary-700: #145C44;
+  --fulgor-primary-800: #103E30;
+  --fulgor-primary-900: #0F3D30;
+
+  /* ---- Color de acento: Ámbar fulgor (el "resplandor" de marca) ---- */
+  --fulgor-accent-100: #FDECC8;
+  --fulgor-accent-300: #F8CC7E;
+  --fulgor-accent-400: #F6B94E;
+  --fulgor-accent-500: #F2A83B;
+  --fulgor-accent-600: #D98F26;
+
+  /* ---- Neutros cálidos ---- */
+  --fulgor-bg:          #FBF9F5;
+  --fulgor-bg-alt:      #F3EFE6;
+  --fulgor-surface:     #FFFFFF;
+  --fulgor-text:        #2A2A25;
+  --fulgor-text-muted:  #6B6B63;
+  --fulgor-border:      #E7E2D8;
+
+  /* ---- Semánticos ---- */
+  --fulgor-success: #2E7D5B;
+  --fulgor-error:   #C0453B;
+  --fulgor-info:    #2E6B8A;
+  --fulgor-warning: #B8791F;
+
+  /* ---- Tipografía ---- */
+  --fulgor-font-display: 'Fraunces', 'Georgia', serif;
+  --fulgor-font-body:    'Inter', system-ui, sans-serif;
+
+  /* Escala modular (ratio 1.25), base 16px */
+  --fulgor-text-xs:   0.8rem;
+  --fulgor-text-sm:   0.9rem;
+  --fulgor-text-base: 1rem;
+  --fulgor-text-lg:   1.25rem;
+  --fulgor-text-xl:   1.563rem;
+  --fulgor-text-2xl:  1.953rem;
+  --fulgor-text-3xl:  2.441rem;
+  --fulgor-text-4xl:  3.052rem;
+  --fulgor-text-5xl:  3.815rem;
+
+  /* ---- Espaciado (base 4px) ---- */
+  --fulgor-space-1:  4px;
+  --fulgor-space-2:  8px;
+  --fulgor-space-3:  12px;
+  --fulgor-space-4:  16px;
+  --fulgor-space-6:  24px;
+  --fulgor-space-8:  32px;
+  --fulgor-space-12: 48px;
+  --fulgor-space-16: 64px;
+  --fulgor-space-24: 96px;
+  --fulgor-space-32: 128px;
+
+  /* ---- Layout ---- */
+  --fulgor-container-max: 1280px;
+
+  /* ---- Radios ---- */
+  --fulgor-radius-sm: 8px;
+  --fulgor-radius-md: 12px;
+  --fulgor-radius-lg: 16px;
+  --fulgor-radius-full: 9999px;
+
+  /* ---- Sombras ---- */
+  --fulgor-shadow-sm:    0 1px 3px rgba(15, 61, 48, 0.06);
+  --fulgor-shadow-md:    0 4px 12px rgba(15, 61, 48, 0.08);
+  --fulgor-shadow-hover: 0 8px 24px rgba(242, 168, 59, 0.22);
+
+  /* ---- Halo fulgor (motivo visual de marca) ---- */
+  --fulgor-gradient-halo: radial-gradient(
+    circle at 70% 20%,
+    rgba(242, 168, 59, 0.35) 0%,
+    rgba(242, 168, 59, 0.08) 40%,
+    rgba(242, 168, 59, 0) 70%
+  );
+
+  /* ---- Transiciones ---- */
+  --fulgor-transition-fast: 150ms ease;
+  --fulgor-transition-base: 250ms ease;
+  --fulgor-transition-slow: 400ms ease;
+}
