@@ -21,14 +21,22 @@ function Hero() {
       }}
     >
       {heroImageSrc && (
-        // Watermark centrado (no foto de fondo a pantalla completa): banner-hero
-        // es el emblema de marca, no una foto documental — se muestra completo,
-        // centrado y con baja opacidad para no competir con el texto.
+        // Emblema de marca en la esquina derecha, centrado verticalmente,
+        // como watermark de baja opacidad detrás del texto.
         <img
           src={heroImageSrc}
           alt=""
           aria-hidden="true"
-          className="absolute left-1/2 top-1/2 h-[85%] max-h-[560px] w-auto max-w-[65%] -translate-x-1/2 -translate-y-1/2 object-contain opacity-20"
+          className="object-contain"
+          style={{
+            position: 'absolute',
+            right: 0,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: '600px',
+            height: '600px',
+            opacity: 0.15,
+          }}
         />
       )}
 
