@@ -41,7 +41,7 @@ cp .env.example .env
 
 | Variable | Descripción |
 | --- | --- |
-| `VITE_CLOUDINARY_CLOUD_NAME` | Nombre del cloud de Cloudinary (Dashboard → Product Environment Credentials). Sin esto, todas las imágenes muestran el placeholder "Imagen de ejemplo". |
+| `VITE_CLOUDINARY_CLOUD_NAME` | Opcional. El cloud name (`dibjbl4zp`) ya está hardcodeado como valor por defecto en `cloudinaryClient.js` porque es un dato público. Solo define esta variable si vas a usar una cuenta de Cloudinary distinta. |
 | `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Solo para `scripts/upload-fotos-fulgor.js` (Node) — nunca se exponen al navegador, por eso no llevan prefijo `VITE_`. |
 | `VITE_CONTACT_FORM_ENDPOINT` | URL a la que se envía el formulario de Contacto (Formspree, backend propio, etc.). Sin esto, el formulario valida pero informa que aún no está conectado, en vez de simular un envío exitoso. |
 | `VITE_EMAILJS_SERVICE_ID` / `VITE_EMAILJS_TEMPLATE_ID` / `VITE_EMAILJS_PUBLIC_KEY` | Documentadas para una futura integración con EmailJS — `ContactForm.jsx` todavía no las usa; hoy funciona solo con `VITE_CONTACT_FORM_ENDPOINT`. |
