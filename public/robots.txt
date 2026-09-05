@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /dev/
 
-# TODO: reemplazar por el dominio real una vez publicado en Vercel (Fase 12)
-Sitemap: https://TU-DOMINIO-VERCEL.vercel.app/sitemap.xml
+Sitemap: https://fulgor-restaurativo.vercel.app/sitemap.xml
