@@ -21,11 +21,15 @@ function Hero() {
       }}
     >
       {heroImageSrc && (
-        <div className="absolute inset-0">
-          <img src={heroImageSrc} alt="" className="h-full w-full object-cover" />
-          {/* Overlay oscuro — mantiene el contraste AA del texto sobre la foto */}
-          <div className="absolute inset-0 bg-primary-900/75" aria-hidden="true" />
-        </div>
+        // Watermark centrado (no foto de fondo a pantalla completa): banner-hero
+        // es el emblema de marca, no una foto documental — se muestra completo,
+        // centrado y con baja opacidad para no competir con el texto.
+        <img
+          src={heroImageSrc}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-1/2 top-1/2 h-[85%] max-h-[560px] w-auto max-w-[65%] -translate-x-1/2 -translate-y-1/2 object-contain opacity-20"
+        />
       )}
 
       <motion.div
