@@ -1,9 +1,15 @@
-import { ACTION_AREAS } from '../../data/actionAreas'
+import { ACTION_AREAS, FEATURED_ACTION_AREA_IDS } from '../../data/actionAreas'
+import { ROUTES } from '../../config/routes.config'
+import Button from '../ui/Button'
 import Card from '../ui/Card'
 import Reveal from '../ui/Reveal'
 import SectionTitle from '../ui/SectionTitle'
 
-/** Grilla de las líneas de acción de la Fundación. */
+const FEATURED_AREAS = FEATURED_ACTION_AREA_IDS.map((id) =>
+  ACTION_AREAS.find((area) => area.id === id),
+)
+
+/** Grilla de las líneas de acción destacadas de la Fundación (versión completa en Qué hacemos). */
 function ActionAreas() {
   return (
     <section className="bg-bg">
@@ -17,7 +23,7 @@ function ActionAreas() {
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ACTION_AREAS.map(({ id, icon: Icon, title, description }, index) => (
+          {FEATURED_AREAS.map(({ id, icon: Icon, title, description }, index) => (
             <Reveal key={id} delay={(index % 3) * 0.08}>
               <Card className="p-6 h-full">
                 <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary-50 text-primary-600">
@@ -28,6 +34,12 @@ function ActionAreas() {
               </Card>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Button variant="outline" to={ROUTES.queHacemos.path}>
+            Ver todas nuestras líneas de acción
+          </Button>
         </div>
       </div>
     </section>

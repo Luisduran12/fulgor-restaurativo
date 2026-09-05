@@ -1,5 +1,5 @@
 import { ImageOff } from 'lucide-react'
-import { buildImageUrl, isDirectUrl } from '../../services/cloudinary/buildImageUrl'
+import { resolveImageSrc } from '../../services/cloudinary/buildImageUrl'
 import { cn } from '../../utils/cn'
 
 /**
@@ -20,11 +20,7 @@ function PlaceholderImage({
   cloudinaryWidth = 1200,
   className,
 }) {
-  const resolvedSrc = src
-    ? isDirectUrl(src)
-      ? src
-      : buildImageUrl(src, { width: cloudinaryWidth })
-    : null
+  const resolvedSrc = resolveImageSrc(src, { width: cloudinaryWidth })
 
   return (
     <div

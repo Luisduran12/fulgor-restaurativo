@@ -18,7 +18,7 @@ function FeaturedPrograms() {
         <SectionTitle
           eyebrow="Programas y proyectos"
           title="Iniciativas en marcha"
-          description="Estos son algunos de los programas y proyectos que lideramos junto a las comunidades."
+          description="Conoce nuestros programas y el trabajo que realizamos junto a las comunidades para generar impacto real y duradero."
           align="center"
           className="mx-auto mb-12"
         />

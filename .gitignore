@@ -17,6 +17,13 @@ dist-ssr
 .env.*
 !.env.example
 
+# Fotos originales a subir a Cloudinary — nunca al repo (README-FOTOS.md sí se versiona)
+/fotos-fulgor/*
+!/fotos-fulgor/README-FOTOS.md
+
+# Resultado local del script de subida de fotos (se regenera en cada corrida)
+scripts/resultado-subida.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

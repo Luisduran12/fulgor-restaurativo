@@ -1,102 +1,147 @@
 import {
+  AlertTriangle,
   BookOpen,
+  Briefcase,
+  Brain,
   Handshake,
+  Heart,
   HeartHandshake,
-  HeartPulse,
+  Home,
+  Leaf,
   LifeBuoy,
+  Lightbulb,
+  Link as LinkIcon,
+  MapPin,
   Palette,
-  ShieldAlert,
-  ShieldCheck,
-  Sprout,
-  Sunrise,
+  RefreshCw,
+  Shield,
+  Star,
   Users,
-  Wheat,
 } from 'lucide-react'
 
 /**
- * Líneas de acción de la Fundación — tal como fueron entregadas en el
- * documento de requisitos. Las descripciones son enunciados genéricos
- * derivados del nombre de cada línea, no logros ni cifras específicas.
+ * Líneas de acción de la Fundación — texto e íconos oficiales entregados
+ * por la Fundación. No modificar sin confirmación oficial.
  */
 export const ACTION_AREAS = [
   {
-    id: 'desarrollo-humano',
-    icon: Sprout,
-    title: 'Desarrollo Humano',
+    id: 1,
+    icon: Shield,
+    title: 'Garantía y protección de derechos',
     description:
-      'Procesos que fortalecen capacidades, autonomía y proyecto de vida de las personas.',
+      'Promovemos el acceso a derechos fundamentales y acompañamos procesos de restitución y protección.',
   },
   {
-    id: 'proteccion-integral',
-    icon: ShieldCheck,
-    title: 'Protección Integral',
+    id: 2,
+    icon: RefreshCw,
+    title: 'Procesos restaurativos',
     description:
-      'Garantía y restablecimiento de derechos para la protección integral de niños, niñas, adolescentes y familias.',
+      'Facilitamos espacios de diálogo, reparación del daño y reconstrucción de vínculos sociales y familiares.',
   },
   {
-    id: 'procesos-restaurativos',
-    icon: HeartHandshake,
-    title: 'Procesos Restaurativos',
-    description:
-      'Prácticas restaurativas orientadas a la reparación, el diálogo y la reconciliación.',
-  },
-  {
-    id: 'atencion-psicosocial',
-    icon: HeartPulse,
-    title: 'Atención Psicosocial',
-    description:
-      'Acompañamiento emocional y psicosocial para la recuperación y el bienestar integral.',
-  },
-  {
-    id: 'prevencion',
-    icon: ShieldAlert,
-    title: 'Prevención',
-    description:
-      'Estrategias de prevención frente a riesgos sociales que afectan a comunidades vulnerables.',
-  },
-  {
-    id: 'educacion',
-    icon: BookOpen,
-    title: 'Educación',
-    description: 'Fortalecimiento de trayectorias educativas y oportunidades de aprendizaje.',
-  },
-  {
-    id: 'cultura',
-    icon: Palette,
-    title: 'Cultura',
-    description: 'Expresiones culturales y artísticas como herramienta de transformación social.',
-  },
-  {
-    id: 'desarrollo-comunitario',
+    id: 3,
     icon: Users,
-    title: 'Desarrollo Comunitario',
+    title: 'Intervención social y comunitaria',
     description:
-      'Fortalecimiento del tejido social y las capacidades organizativas de las comunidades.',
+      'Desarrollamos programas con enfoque territorial para el fortalecimiento de comunidades.',
   },
   {
-    id: 'inclusion-social',
+    id: 4,
+    icon: Heart,
+    title: 'Protección integral de niñez y adolescencia',
+    description:
+      'Acompañamos a niños, niñas y adolescentes en el ejercicio pleno de sus derechos.',
+  },
+  {
+    id: 5,
+    icon: Star,
+    title: 'Atención a jóvenes',
+    description:
+      'Generamos oportunidades de desarrollo, participación y proyección de vida para la juventud.',
+  },
+  {
+    id: 6,
+    icon: Home,
+    title: 'Acompañamiento a familias',
+    description: 'Fortalecemos los vínculos familiares y capacidades de cuidado y protección.',
+  },
+  {
+    id: 7,
+    icon: HeartHandshake,
+    title: 'Atención a población vulnerable',
+    description: 'Brindamos acompañamiento integral a personas en situación de vulnerabilidad.',
+  },
+  {
+    id: 8,
+    icon: Brain,
+    title: 'Atención psicosocial',
+    description: 'Ofrecemos acompañamiento emocional y psicosocial a personas y comunidades.',
+  },
+  {
+    id: 9,
+    icon: AlertTriangle,
+    title: 'Prevención de riesgos sociales',
+    description:
+      'Desarrollamos acciones preventivas frente a violencias, consumos y situaciones de riesgo.',
+  },
+  {
+    id: 10,
     icon: Handshake,
-    title: 'Inclusión Social',
-    description:
-      'Acciones que promueven la participación y la igualdad de oportunidades para todos.',
+    title: 'Convivencia y paz integral',
+    description: 'Promovemos la cultura de paz, el diálogo y la resolución pacífica de conflictos.',
   },
   {
-    id: 'construccion-de-paz',
-    icon: Sunrise,
-    title: 'Construcción de Paz',
-    description:
-      'Iniciativas que promueven la convivencia, la reconciliación y la paz territorial.',
+    id: 11,
+    icon: BookOpen,
+    title: 'Educación y desarrollo humano',
+    description: 'Impulsamos procesos formativos orientados al crecimiento personal y colectivo.',
   },
   {
-    id: 'atencion-humanitaria',
+    id: 12,
+    icon: Palette,
+    title: 'Actividades culturales y artísticas',
+    description: 'Usamos el arte y la cultura como herramientas de transformación social.',
+  },
+  {
+    id: 13,
+    icon: Briefcase,
+    title: 'Inclusión social y laboral',
+    description:
+      'Generamos rutas de inclusión, orientación vocacional y oportunidades de desarrollo.',
+  },
+  {
+    id: 14,
+    icon: MapPin,
+    title: 'Desarrollo comunitario',
+    description:
+      'Acompañamos procesos de organización, participación y desarrollo en los territorios.',
+  },
+  {
+    id: 15,
+    icon: Leaf,
+    title: 'Seguridad alimentaria',
+    description: 'Promovemos el acceso a alimentación adecuada y soberanía alimentaria.',
+  },
+  {
+    id: 16,
     icon: LifeBuoy,
-    title: 'Atención Humanitaria',
-    description: 'Respuesta humanitaria a población en situación de vulnerabilidad o crisis.',
+    title: 'Atención humanitaria',
+    description: 'Respondemos a situaciones de emergencia y crisis con atención oportuna.',
   },
   {
-    id: 'seguridad-alimentaria',
-    icon: Wheat,
-    title: 'Seguridad Alimentaria',
-    description: 'Acciones orientadas a garantizar el acceso a una alimentación digna y nutritiva.',
+    id: 17,
+    icon: Lightbulb,
+    title: 'Innovación social',
+    description:
+      'Exploramos nuevas metodologías y enfoques para responder a los desafíos sociales.',
+  },
+  {
+    id: 18,
+    icon: LinkIcon,
+    title: 'Alianzas y desarrollo sostenible',
+    description: 'Construimos redes de cooperación para ampliar el impacto de nuestros programas.',
   },
 ]
+
+/** Áreas destacadas en Inicio (por id, en este orden). */
+export const FEATURED_ACTION_AREA_IDS = [1, 2, 3, 4, 11, 10]

@@ -13,6 +13,7 @@ const VARIANT_CLASSES = {
   'outline-inverse':
     'bg-transparent text-white border border-white/40 hover:bg-white/10',
   ghost: 'bg-transparent text-primary-700 hover:bg-primary-50',
+  whatsapp: 'bg-[#25D366] text-white hover:bg-[#1ebe57] focus-visible:outline-primary-700',
 }
 
 const SIZE_CLASSES = {
@@ -34,6 +35,7 @@ function Button({
   icon: Icon,
   loading = false,
   disabled = false,
+  fullWidth = false,
   className,
   ...rest
 }) {
@@ -46,8 +48,10 @@ function Button({
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-none',
     VARIANT_CLASSES[variant],
     SIZE_CLASSES[size],
+    fullWidth && 'w-full',
     className,
   )
+  const wrapperClasses = fullWidth ? 'block w-full' : 'inline-block'
 
   const content = (
     <>
@@ -63,7 +67,7 @@ function Button({
 
   if (to && !isDisabled) {
     return (
-      <motion.span {...motionProps} className="inline-block">
+      <motion.span {...motionProps} className={wrapperClasses}>
         <Link to={to} className={classes} {...rest}>
           {content}
         </Link>
@@ -74,7 +78,7 @@ function Button({
   if (href && !isDisabled) {
     const isExternal = /^https?:\/\//.test(href)
     return (
-      <motion.span {...motionProps} className="inline-block">
+      <motion.span {...motionProps} className={wrapperClasses}>
         <a
           href={href}
           className={classes}

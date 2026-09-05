@@ -17,6 +17,7 @@ function Seo({ title, description, path = '' }) {
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={finalDescription} />
+      <meta name="keywords" content={SEO_DEFAULTS.keywords} />
       {url && <link rel="canonical" href={url} />}
 
       <meta property="og:type" content="website" />

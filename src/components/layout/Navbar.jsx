@@ -3,31 +3,14 @@ import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ROUTES, NAV_LINKS } from '../../config/routes.config'
-import { SITE } from '../../config/site.config'
 import Button from '../ui/Button'
 import SocialLinks from '../ui/SocialLinks'
+import Logo from './Logo'
 
 const NAV_LINK_CLASSES = ({ isActive }) =>
-  `text-sm font-medium transition-colors duration-150 ${
+  `text-sm font-medium whitespace-nowrap transition-colors duration-150 ${
     isActive ? 'text-primary-700' : 'text-text-muted hover:text-primary-700'
   }`
-
-function Logo() {
-  return (
-    <NavLink to={ROUTES.home.path} className="flex items-center gap-2 shrink-0" end>
-      <span
-        className="h-3 w-3 rounded-full bg-accent-500"
-        style={{ boxShadow: '0 0 12px 2px rgba(242,168,59,0.6)' }}
-        aria-hidden="true"
-      />
-      <span className="font-display text-lg leading-tight text-primary-900">
-        Fundación ONG
-        <br />
-        <span className="text-primary-500">{SITE.shortName}</span>
-      </span>
-    </NavLink>
-  )
-}
 
 /** Encabezado sticky: se compacta y gana sombra al hacer scroll. */
 function Navbar() {
@@ -66,7 +49,7 @@ function Navbar() {
       >
         <Logo />
 
-        <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-6">
+        <nav aria-label="Navegación principal" className="hidden xl:flex items-center gap-5">
           {NAV_LINKS.map((route) => (
             <NavLink
               key={route.path}
@@ -79,7 +62,7 @@ function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden xl:flex items-center gap-4">
           <SocialLinks className="text-text-muted" />
           <Button to={ROUTES.contacto.path} variant="accent" size="sm">
             Contáctanos
@@ -88,7 +71,7 @@ function Navbar() {
 
         <button
           type="button"
-          className="lg:hidden p-2 text-primary-900"
+          className="xl:hidden p-2 text-primary-900"
           onClick={() => setIsMenuOpen((open) => !open)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -107,7 +90,7 @@ function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.25 }}
-            className="lg:hidden overflow-hidden border-t border-border bg-surface"
+            className="xl:hidden overflow-hidden border-t border-border bg-surface"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {NAV_LINKS.map((route) => (

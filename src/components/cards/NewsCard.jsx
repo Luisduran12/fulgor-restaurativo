@@ -1,4 +1,5 @@
 import { CalendarClock } from 'lucide-react'
+import { formatDate } from '../../utils/formatters'
 import Badge from '../ui/Badge'
 import Card from '../ui/Card'
 import PlaceholderImage from '../ui/PlaceholderImage'
@@ -30,7 +31,7 @@ function NewsCard({ item }) {
       {date && (
         <div className="mt-4 pt-4 border-t border-border flex items-center gap-1 text-xs text-text-muted">
           <CalendarClock size={14} aria-hidden="true" />
-          {date}
+          {formatDate(date)}
         </div>
       )}
     </Card>

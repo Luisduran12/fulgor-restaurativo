@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { NAV_LINKS } from '../../config/routes.config'
 import { CONTACT, SITE } from '../../config/site.config'
 import SocialLinks from '../ui/SocialLinks'
+import Logo from './Logo'
 
 function ContactLine({ icon: Icon, value, href }) {
   const isConfigured = value && value !== '[POR COMPLETAR]'
@@ -28,7 +29,7 @@ function Footer() {
     <footer className="bg-primary-900 text-primary-50">
       <div className="max-w-[var(--fulgor-container-max)] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <p className="font-display text-xl mb-3">{SITE.shortName}</p>
+          <Logo theme="dark" className="mb-3" />
           <p className="text-sm text-primary-100/80 max-w-xs mb-6">
             {SITE.legal.nature} dedicada a la {SITE.tagline.toLowerCase()} en{' '}
             {SITE.location.city}, {SITE.location.department}.
@@ -56,9 +57,21 @@ function Footer() {
             Contacto
           </p>
           <ul className="space-y-2 text-sm text-primary-100/80">
-            <ContactLine icon={MapPin} value={CONTACT.address} />
+            <ContactLine
+              icon={MapPin}
+              value={`${CONTACT.address.line1}, ${CONTACT.address.line2}, ${CONTACT.address.cityLine}`}
+            />
             <ContactLine icon={Mail} value={CONTACT.email} href={`mailto:${CONTACT.email}`} />
-            <ContactLine icon={Phone} value={CONTACT.phone} href={`tel:${CONTACT.phone}`} />
+            <ContactLine
+              icon={Phone}
+              value={CONTACT.phone1Display}
+              href={`tel:+57${CONTACT.phone1}`}
+            />
+            <ContactLine
+              icon={Phone}
+              value={CONTACT.phone2Display}
+              href={`tel:+57${CONTACT.phone2}`}
+            />
           </ul>
         </div>
       </div>

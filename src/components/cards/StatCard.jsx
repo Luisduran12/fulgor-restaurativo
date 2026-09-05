@@ -5,7 +5,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal'
 /**
  * Tarjeta de cifra de impacto. Anima 0 → valor cuando entra en viewport.
  * Si `value` es null (dato aún no entregado por la Fundación), muestra
- * "—" y "[POR COMPLETAR]" en vez de inventar una cifra.
+ * "—" y "(en actualización)" en vez de inventar una cifra.
  */
 function StatCard({ label, value, theme = 'dark' }) {
   const [ref, isVisible] = useScrollReveal()
@@ -30,7 +30,7 @@ function StatCard({ label, value, theme = 'dark' }) {
       <p className={`mt-2 text-sm ${isDark ? 'text-primary-100/80' : 'text-text-muted'}`}>{label}</p>
       {displayValue === null && (
         <p className={`text-xs italic ${isDark ? 'text-primary-100/50' : 'text-text-muted/70'}`}>
-          [POR COMPLETAR]
+          (en actualización)
         </p>
       )}
     </div>

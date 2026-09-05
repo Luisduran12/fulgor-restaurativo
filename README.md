@@ -42,30 +42,37 @@ cp .env.example .env
 | Variable | Descripción |
 | --- | --- |
 | `VITE_CLOUDINARY_CLOUD_NAME` | Nombre del cloud de Cloudinary (Dashboard → Product Environment Credentials). Sin esto, todas las imágenes muestran el placeholder "Imagen de ejemplo". |
+| `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Solo para `scripts/upload-fotos-fulgor.js` (Node) — nunca se exponen al navegador, por eso no llevan prefijo `VITE_`. |
 | `VITE_CONTACT_FORM_ENDPOINT` | URL a la que se envía el formulario de Contacto (Formspree, backend propio, etc.). Sin esto, el formulario valida pero informa que aún no está conectado, en vez de simular un envío exitoso. |
+| `VITE_EMAILJS_SERVICE_ID` / `VITE_EMAILJS_TEMPLATE_ID` / `VITE_EMAILJS_PUBLIC_KEY` | Documentadas para una futura integración con EmailJS — `ContactForm.jsx` todavía no las usa; hoy funciona solo con `VITE_CONTACT_FORM_ENDPOINT`. |
 | `VITE_SITE_URL` | URL pública del sitio ya desplegado (ej. `https://fulgor-restaurativo.vercel.app`). Se usa para `<link rel="canonical">` y Open Graph. Sin esto, esas etiquetas simplemente se omiten. |
 
 **Nunca subas `.env` al repositorio** — ya está excluido en `.gitignore`. Verifica siempre
 `git status` antes de un commit si trabajaste con variables sensibles.
 
-## Cloudinary — estructura de carpetas
+## Cómo subir fotos — carpeta única `fotos-fulgor/`
 
-En la cuenta de Cloudinary, organiza los assets así:
+No hace falta subir fotos manualmente a Cloudinary. Todo el flujo está automatizado:
 
-```
-logo/          — logo oficial e isotipos
-institucional/ — fotos institucionales, equipo, sede
-actividades/   — fotos de actividades y jornadas
-proyectos/     — fotos de programas y proyectos
-banners/       — imágenes de hero/banners
-noticias/      — imágenes de noticias y comunicados
-galeria/       — galería pública (por las categorías de src/data/gallery.js)
-```
-
-Para usar una imagen real, sube el archivo a la carpeta correspondiente y coloca su
-`public_id` (ej. `institucional/sede-cucuta`) en el campo `image`/`logo`/`src` de la entrada
-correspondiente en `src/data/*.js`. `PlaceholderImage` la detecta automáticamente y la sirve
-optimizada (`f_auto,q_auto`); si el campo queda vacío, sigue mostrando el placeholder.
+1. Nombra cada foto con el prefijo correcto (`logo-`, `banner-`, `institucional-`,
+   `galeria-actividades-`, `galeria-educacion-`, `galeria-comunidad-`, `galeria-cultura-`,
+   `galeria-eventos-`, `galeria-campanas-`, `proyectos-`, `noticias-`, `aliados-`) — ver la
+   tabla completa en [`fotos-fulgor/README-FOTOS.md`](fotos-fulgor/README-FOTOS.md).
+2. Copia las fotos a la carpeta `fotos-fulgor/` en la raíz del proyecto (no se sube al
+   repositorio — está en `.gitignore`).
+3. Ejecuta:
+   ```bash
+   npm run upload-fotos            # pregunta ante prefijos desconocidos o sobreescrituras
+   npm run upload-fotos -- --auto  # modo silencioso: sin prefijo -> sin-clasificar/
+   ```
+4. El script sube cada foto a Cloudinary (`f_auto,q_auto` al servirla) y genera
+   `scripts/resultado-subida.json` con la URL y el `public_id` de cada una.
+5. Las fotos de galería aparecen automáticamente en el sitio. Para logo, programas,
+   noticias o aliados, copia el `public_id` desde ese archivo y pégalo en el campo
+   correspondiente de `src/config/site.config.js` (`SITE.logo`) o `src/data/*.js`.
+   `PlaceholderImage` (y el logo del Navbar) detectan automáticamente si el valor es un
+   `public_id` de Cloudinary o una URL directa, y sirven la imagen optimizada; si el campo
+   queda vacío, siguen mostrando el placeholder.
 
 ## Contenido editable
 
@@ -129,11 +136,39 @@ src/
 public/
   documents/         documentos de transparencia (PDFs)
   robots.txt, sitemap.xml, favicon.svg
+fotos-fulgor/        carpeta única para subir fotos (no se versiona, ver su README-FOTOS.md)
+scripts/
+  upload-fotos-fulgor.js   clasifica y sube fotos-fulgor/ a Cloudinary por prefijo
 ```
+
+## Guía rápida para el equipo
+
+### Cómo agregar fotos nuevas
+1. Renombra cada foto con el prefijo correcto (ver tabla en `fotos-fulgor/README-FOTOS.md`).
+2. Cópiala a la carpeta `fotos-fulgor/` en el proyecto.
+3. Ejecuta `npm run upload-fotos`.
+4. El script sube, organiza y genera `scripts/resultado-subida.json` con las URLs.
+5. Las fotos de galería aparecen automáticamente en el sitio.
+6. Para logo/proyectos/noticias/aliados: copia el `public_id` del JSON y pégalo en
+   `src/config/site.config.js` o `src/data/` según corresponda.
+
+### Cómo agregar un proyecto nuevo
+1. Abre `src/data/programs.js` y agrega un objeto siguiendo la forma documentada en el
+   comentario del archivo (`id`, `name`, `description`, `objective`, `population`, `place`,
+   `date`, `status`, `image`, `results`).
+2. Sube las fotos del proyecto con prefijo `proyectos-`.
+3. Copia el `public_id` desde `scripts/resultado-subida.json` y pégalo en el campo `image`.
+
+### Cómo agregar una noticia
+1. Abre `src/data/news.js` y agrega un objeto con `id`, `title`, `excerpt`, `type`, `date`
+   e `image` (ver el comentario del archivo para los tipos válidos).
+2. La noticia aparece automáticamente en `/noticias`.
 
 ## Estado del contenido
 
-Este sitio evita inventar información institucional. Todo lo que aún no ha sido entregado
-por la Fundación aparece marcado explícitamente como `[POR COMPLETAR]` en la interfaz
-(misión y visión oficiales, cifras de impacto, aliados, documentos de transparencia, correo y
-teléfono de contacto, redes sociales). Reemplázalo a medida que la Fundación lo confirme.
+Este sitio evita inventar información institucional. Los datos oficiales de la Fundación
+(misión, visión 2030, principios y valores, enfoques de trabajo, líneas de acción, datos de
+contacto y redes sociales) ya están cargados. Lo que aún no ha sido entregado sigue marcado
+explícitamente como `[POR COMPLETAR]` en la interfaz: la historia detallada de la Fundación,
+las cifras de impacto, los programas/proyectos reales, las noticias, los aliados y los
+documentos de transparencia. Reemplázalo a medida que la Fundación lo confirme.

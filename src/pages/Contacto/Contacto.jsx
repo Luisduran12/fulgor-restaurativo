@@ -2,8 +2,10 @@ import { Map, Mail, MapPin, Phone } from 'lucide-react'
 import Seo from '../../components/seo/Seo'
 import ContactForm from '../../components/sections/ContactForm'
 import PageHeader from '../../components/sections/PageHeader'
+import Button from '../../components/ui/Button'
 import Card from '../../components/ui/Card'
 import SocialLinks from '../../components/ui/SocialLinks'
+import { WhatsAppIcon } from '../../components/ui/SocialIcons'
 import { CONTACT, SITE } from '../../config/site.config'
 
 function ContactDetail({ icon: Icon, label, value, href }) {
@@ -53,7 +55,15 @@ function Contacto() {
 
           <div className="space-y-6">
             <Card className="p-6 space-y-5">
-              <ContactDetail icon={MapPin} label="Ubicación" value={CONTACT.address} />
+              <Button variant="whatsapp" icon={WhatsAppIcon} href={CONTACT.whatsappUrl} fullWidth>
+                Escríbenos por WhatsApp
+              </Button>
+
+              <ContactDetail
+                icon={MapPin}
+                label="Ubicación"
+                value={`${CONTACT.address.line1}, ${CONTACT.address.line2}, ${CONTACT.address.cityLine}`}
+              />
               <ContactDetail
                 icon={Mail}
                 label="Correo"
@@ -63,12 +73,18 @@ function Contacto() {
               <ContactDetail
                 icon={Phone}
                 label="Teléfono"
-                value={CONTACT.phone}
-                href={`tel:${CONTACT.phone}`}
+                value={CONTACT.phone1Display}
+                href={`tel:+57${CONTACT.phone1}`}
+              />
+              <ContactDetail
+                icon={Phone}
+                label="Teléfono"
+                value={CONTACT.phone2Display}
+                href={`tel:+57${CONTACT.phone2}`}
               />
               <div>
                 <p className="text-xs uppercase tracking-wide text-text-muted mb-2">Síguenos</p>
-                <SocialLinks className="text-primary-700" />
+                <SocialLinks className="text-primary-700" withWhatsapp={false} />
               </div>
             </Card>
 

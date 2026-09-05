@@ -1,14 +1,25 @@
-import { SOCIAL_LINKS } from '../../config/site.config'
+import { CONTACT, SOCIAL_LINKS } from '../../config/site.config'
 import { cn } from '../../utils/cn'
-import { FacebookIcon, InstagramIcon } from './SocialIcons'
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons'
 
-const ICONS = { instagram: InstagramIcon, facebook: FacebookIcon }
+const ICONS = { instagram: InstagramIcon, facebook: FacebookIcon, whatsapp: WhatsAppIcon }
 
-/** Íconos de redes sociales; se ocultan si el enlace real aún no fue entregado. */
-function SocialLinks({ className, iconClassName }) {
+/**
+ * Íconos de redes sociales (+ WhatsApp); se ocultan si el enlace real aún
+ * no fue entregado. `withWhatsapp={false}` lo omite (ej. si ya hay un botón
+ * de WhatsApp dedicado en la misma vista, como en la página de Contacto).
+ */
+function SocialLinks({ className, iconClassName, withWhatsapp = true }) {
+  const links = {
+    ...SOCIAL_LINKS,
+    ...(withWhatsapp
+      ? { whatsapp: { label: 'WhatsApp', url: CONTACT.whatsappUrl } }
+      : {}),
+  }
+
   return (
     <div className={cn('flex items-center gap-3', className)}>
-      {Object.entries(SOCIAL_LINKS).map(([key, { label, url }]) => {
+      {Object.entries(links).map(([key, { label, url }]) => {
         const Icon = ICONS[key]
         const isConfigured = url && url !== '[POR COMPLETAR]'
 

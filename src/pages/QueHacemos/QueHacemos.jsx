@@ -22,9 +22,9 @@ function QueHacemos() {
 
       <section className="bg-bg">
         <div className="max-w-[var(--fulgor-container-max)] mx-auto px-6 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {ACTION_AREAS.map(({ id, icon: Icon, title, description }, index) => (
-              <Reveal key={id} delay={(index % 2) * 0.1}>
+              <Reveal key={id} delay={(index % 3) * 0.08}>
                 <Card className="overflow-hidden h-full flex flex-col">
                   <PlaceholderImage aspectRatio="16 / 9" rounded="rounded-t-lg" />
                   <div className="p-6 flex-1 flex flex-col">

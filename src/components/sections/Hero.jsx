@@ -2,14 +2,27 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { ROUTES } from '../../config/routes.config'
 import { SITE } from '../../config/site.config'
+import { resolveImageSrc } from '../../services/cloudinary/buildImageUrl'
 import Button from '../ui/Button'
 
-/** Sección hero con halo ámbar de marca y movimiento sutil (parallax). */
+/** public_id de Cloudinary del banner del hero (prefijo `banner-` en fotos-fulgor/). */
+const HERO_IMAGE = 'fulgor-restaurativo/banners/banner-hero'
+
+/** Sección hero con foto real, overlay oscuro para contraste y halo ámbar de marca. */
 function Hero() {
   const prefersReducedMotion = useReducedMotion()
+  const heroImageSrc = resolveImageSrc(HERO_IMAGE, { width: 1920 })
 
   return (
     <section className="relative overflow-hidden bg-primary-900 text-white">
+      {heroImageSrc && (
+        <div className="absolute inset-0">
+          <img src={heroImageSrc} alt="" className="h-full w-full object-cover" />
+          {/* Overlay oscuro — mantiene el contraste AA del texto sobre la foto */}
+          <div className="absolute inset-0 bg-primary-900/75" aria-hidden="true" />
+        </div>
+      )}
+
       <motion.div
         aria-hidden="true"
         className="absolute inset-0"
@@ -26,12 +39,12 @@ function Hero() {
           {SITE.legal.nature} · {SITE.location.city}, {SITE.location.department}
         </p>
         <h1 className="font-display text-4xl md:text-5xl max-w-3xl leading-tight">
-          Un resplandor que restaura vidas y comunidades
+          Transformando vidas, restaurando comunidades, construyendo paz.
         </h1>
         <p className="mt-6 text-lg text-primary-100/90 max-w-2xl leading-relaxed">
-          Trabajamos por la {SITE.tagline.toLowerCase()}, acompañando procesos de reparación,
-          dignidad y nueva oportunidad para las personas y comunidades de{' '}
-          {SITE.location.city}, {SITE.location.department}.
+          Somos una organización sin ánimo de lucro comprometida con el desarrollo humano
+          integral, la protección de derechos y la transformación social en {SITE.location.city}{' '}
+          y {SITE.location.department}.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button variant="accent" size="lg" to={ROUTES.programas.path} icon={ArrowRight}>
