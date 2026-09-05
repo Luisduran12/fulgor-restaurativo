@@ -5,6 +5,14 @@ import PlaceholderImage from '../../components/ui/PlaceholderImage'
 import Reveal from '../../components/ui/Reveal'
 import { ACTION_AREAS } from '../../data/actionAreas'
 
+/**
+ * Por ahora esta página solo muestra estas 3 líneas de acción (a pedido).
+ * El resto sigue en data/actionAreas.js sin borrarse — Inicio (ActionAreas.jsx)
+ * también depende de ese archivo para su sección de líneas destacadas.
+ */
+const VISIBLE_IDS = [1, 2, 3]
+const VISIBLE_AREAS = ACTION_AREAS.filter((area) => VISIBLE_IDS.includes(area.id))
+
 function QueHacemos() {
   return (
     <>
@@ -23,7 +31,7 @@ function QueHacemos() {
       <section className="bg-bg">
         <div className="max-w-[var(--fulgor-container-max)] mx-auto px-6 py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {ACTION_AREAS.map(({ id, icon: Icon, title, description, image }, index) => (
+            {VISIBLE_AREAS.map(({ id, icon: Icon, title, description, image }, index) => (
               <Reveal key={id} delay={(index % 3) * 0.08}>
                 <Card className="overflow-hidden h-full flex flex-col">
                   <PlaceholderImage
