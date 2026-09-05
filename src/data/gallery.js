@@ -1,12 +1,13 @@
 /**
- * Categorías y elementos de la galería. Los `src` quedan en null hasta que
- * se suban fotografías reales vía Cloudinary — PlaceholderImage muestra el
- * aviso "Imagen de ejemplo" mientras tanto. No sustituir por fotografías de
- * stock haciéndolas pasar por actividades reales.
+ * Categorías y elementos de la galería. Cada foto es una entrada
+ * independiente con su `category` — una categoría puede tener varias
+ * fotos, o ninguna (aparecerá vacía en el filtro hasta que se suba algo).
+ * No sustituir por fotografías de stock haciéndolas pasar por actividades
+ * reales.
  *
- * Nota: "proyectos" y "jornadas" no tienen un prefijo propio en
- * scripts/upload-fotos-fulgor.js (ver fotos-fulgor/README-FOTOS.md) —
- * quedan como placeholder hasta definir cómo clasificarlas.
+ * Nota: "proyectos" y "campañas" aún no tienen fotos propias de galería
+ * (el prefijo `proyectos-` va a la página Programas, no a Galería) — quedan
+ * sin elementos hasta que se suba algo con un prefijo dedicado.
  */
 export const GALLERY_CATEGORIES = [
   { id: 'actividades', label: 'Actividades' },
@@ -19,18 +20,58 @@ export const GALLERY_CATEGORIES = [
   { id: 'jornadas', label: 'Jornadas' },
 ]
 
-/** public_id de Cloudinary por categoría — null mientras no haya foto real. */
-const SRC_BY_CATEGORY = {
-  actividades: 'fulgor-restaurativo/galeria/actividades/galeria-actividades-jornada',
-  comunidad: 'fulgor-restaurativo/galeria/comunidad/galeria-comunidad-barrio',
-  cultura: 'fulgor-restaurativo/galeria/cultura/galeria-cultura-evento',
-  educacion: 'fulgor-restaurativo/galeria/educacion/galeria-educacion-taller',
-  eventos: 'fulgor-restaurativo/galeria/eventos/galeria-eventos-mayo',
+const CATEGORY_LABELS = Object.fromEntries(
+  GALLERY_CATEGORIES.map((category) => [category.id, category.label]),
+)
+
+function item(id, category, src) {
+  return { id, category, src, alt: `${CATEGORY_LABELS[category]} — Fundación ONG Fulgor Restaurativo` }
 }
 
-export const GALLERY_ITEMS = GALLERY_CATEGORIES.map((category) => ({
-  id: category.id,
-  category: category.id,
-  src: SRC_BY_CATEGORY[category.id] ?? null,
-  alt: `${category.label} — Fundación ONG Fulgor Restaurativo`,
-}))
+export const GALLERY_ITEMS = [
+  item(
+    'galeria-actividades-jornada',
+    'actividades',
+    'fulgor-restaurativo/galeria/actividades/galeria-actividades-jornada',
+  ),
+  item(
+    'galeria-actividades-01',
+    'actividades',
+    'fulgor-restaurativo/galeria/actividades/galeria-actividades-01',
+  ),
+  item(
+    'galeria-comunidad-barrio',
+    'comunidad',
+    'fulgor-restaurativo/galeria/comunidad/galeria-comunidad-barrio',
+  ),
+  item(
+    'galeria-comunidad-01',
+    'comunidad',
+    'fulgor-restaurativo/galeria/comunidad/galeria-comunidad-01',
+  ),
+  item(
+    'galeria-comunidad-02',
+    'comunidad',
+    'fulgor-restaurativo/galeria/comunidad/galeria-comunidad-02',
+  ),
+  item(
+    'galeria-educacion-taller',
+    'educacion',
+    'fulgor-restaurativo/galeria/educacion/galeria-educacion-taller',
+  ),
+  item(
+    'galeria-cultura-evento',
+    'cultura',
+    'fulgor-restaurativo/galeria/cultura/galeria-cultura-evento',
+  ),
+  item(
+    'galeria-eventos-mayo',
+    'eventos',
+    'fulgor-restaurativo/galeria/eventos/galeria-eventos-mayo',
+  ),
+  item(
+    'galeria-jornadas-01',
+    'jornadas',
+    'fulgor-restaurativo/galeria/jornadas/galeria-jornadas-01',
+  ),
+]

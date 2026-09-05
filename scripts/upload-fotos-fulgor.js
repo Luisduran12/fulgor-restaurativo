@@ -27,6 +27,8 @@ const PREFIX_MAP = [
   ['galeria-cultura-', 'fulgor-restaurativo/galeria/cultura'],
   ['galeria-eventos-', 'fulgor-restaurativo/galeria/eventos'],
   ['galeria-campanas-', 'fulgor-restaurativo/galeria/campanas'],
+  ['galeria-jornadas-', 'fulgor-restaurativo/galeria/jornadas'],
+  ['que-hacemos-', 'fulgor-restaurativo/que-hacemos'],
   ['institucional-', 'fulgor-restaurativo/institucional'],
   ['proyectos-', 'fulgor-restaurativo/proyectos'],
   ['noticias-', 'fulgor-restaurativo/noticias'],
@@ -46,6 +48,8 @@ const CATEGORY_OPTIONS = [
   ['galeria-cultura', 'fulgor-restaurativo/galeria/cultura'],
   ['galeria-eventos', 'fulgor-restaurativo/galeria/eventos'],
   ['galeria-campanas', 'fulgor-restaurativo/galeria/campanas'],
+  ['galeria-jornadas', 'fulgor-restaurativo/galeria/jornadas'],
+  ['que-hacemos', 'fulgor-restaurativo/que-hacemos'],
   ['proyectos', 'fulgor-restaurativo/proyectos'],
   ['noticias', 'fulgor-restaurativo/noticias'],
   ['aliados', 'fulgor-restaurativo/aliados'],
@@ -59,6 +63,7 @@ const USO_HINTS = {
   'fulgor-restaurativo/proyectos': 'src/data/programs.js → campo image de la entrada correspondiente',
   'fulgor-restaurativo/noticias': 'src/data/news.js → campo image de la entrada correspondiente',
   'fulgor-restaurativo/aliados': 'src/data/alliances.js → campo logo de la entrada correspondiente',
+  'fulgor-restaurativo/que-hacemos': 'src/data/actionAreas.js → campo image de la línea de acción correspondiente',
   'fulgor-restaurativo/sin-clasificar': 'Sin uso asignado — revisar y mover manualmente en Cloudinary',
 }
 

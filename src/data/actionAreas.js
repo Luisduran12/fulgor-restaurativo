@@ -30,6 +30,7 @@ export const ACTION_AREAS = [
     title: 'Garantía y protección de derechos',
     description:
       'Promovemos el acceso a derechos fundamentales y acompañamos procesos de restitución y protección.',
+    image: 'fulgor-restaurativo/que-hacemos/que-hacemos-derechos-01',
   },
   {
     id: 2,
@@ -37,6 +38,7 @@ export const ACTION_AREAS = [
     title: 'Procesos restaurativos',
     description:
       'Facilitamos espacios de diálogo, reparación del daño y reconstrucción de vínculos sociales y familiares.',
+    image: 'fulgor-restaurativo/que-hacemos/que-hacemos-restaurativos-01',
   },
   {
     id: 3,
@@ -44,6 +46,7 @@ export const ACTION_AREAS = [
     title: 'Intervención social y comunitaria',
     description:
       'Desarrollamos programas con enfoque territorial para el fortalecimiento de comunidades.',
+    image: 'fulgor-restaurativo/que-hacemos/que-hacemos-comunidad-01',
   },
   {
     id: 4,

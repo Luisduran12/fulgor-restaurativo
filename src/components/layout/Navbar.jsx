@@ -9,10 +9,10 @@ import Logo from './Logo'
 
 const NAV_LINK_CLASSES = ({ isActive }) =>
   `text-sm font-medium whitespace-nowrap transition-colors duration-150 ${
-    isActive ? 'text-primary-700' : 'text-text-muted hover:text-primary-700'
+    isActive ? 'text-accent-400' : 'text-primary-100/80 hover:text-white'
   }`
 
-/** Encabezado sticky: se compacta y gana sombra al hacer scroll. */
+/** Encabezado sticky, fondo azul de marca: se compacta y gana sombra al hacer scroll. */
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -38,16 +38,16 @@ function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 bg-surface/95 backdrop-blur transition-shadow duration-250 ${
+      className={`sticky top-0 z-40 bg-primary-900/97 backdrop-blur transition-shadow duration-250 ${
         isScrolled ? 'shadow-md' : ''
       }`}
     >
       <div
         className={`max-w-[var(--fulgor-container-max)] mx-auto flex items-center justify-between px-6 transition-[padding] duration-250 ${
-          isScrolled ? 'py-2' : 'py-4'
+          isScrolled ? 'py-2' : 'py-3'
         }`}
       >
-        <Logo />
+        <Logo theme="dark" />
 
         <nav aria-label="Navegación principal" className="hidden xl:flex items-center gap-5">
           {NAV_LINKS.map((route) => (
@@ -63,7 +63,7 @@ function Navbar() {
         </nav>
 
         <div className="hidden xl:flex items-center gap-4">
-          <SocialLinks className="text-text-muted" />
+          <SocialLinks className="text-primary-100" />
           <Button to={ROUTES.contacto.path} variant="accent" size="sm">
             Contáctanos
           </Button>
@@ -71,7 +71,7 @@ function Navbar() {
 
         <button
           type="button"
-          className="xl:hidden p-2 text-primary-900"
+          className="xl:hidden p-2 text-white"
           onClick={() => setIsMenuOpen((open) => !open)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -90,7 +90,7 @@ function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.25 }}
-            className="xl:hidden overflow-hidden border-t border-border bg-surface"
+            className="xl:hidden overflow-hidden border-t border-primary-800 bg-primary-900"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {NAV_LINKS.map((route) => (
@@ -102,8 +102,8 @@ function Navbar() {
                   className={({ isActive }) =>
                     `rounded-md px-3 py-2.5 text-base font-medium transition-colors ${
                       isActive
-                        ? 'bg-primary-50 text-primary-700'
-                        : 'text-text-muted hover:bg-bg-alt'
+                        ? 'bg-primary-800 text-accent-400'
+                        : 'text-primary-100/80 hover:bg-primary-800'
                     }`
                   }
                 >
@@ -111,7 +111,7 @@ function Navbar() {
                 </NavLink>
               ))}
               <div className="flex items-center justify-between px-3 pt-4">
-                <SocialLinks className="text-text-muted" />
+                <SocialLinks className="text-primary-100" />
                 <Button
                   to={ROUTES.contacto.path}
                   variant="accent"

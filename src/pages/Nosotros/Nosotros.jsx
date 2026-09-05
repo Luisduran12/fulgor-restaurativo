@@ -99,8 +99,8 @@ function Nosotros() {
           </Reveal>
           <Reveal delay={0.1}>
             <PlaceholderImage
-              src="fulgor-restaurativo/institucional/institucional-equipo"
-              alt={`Equipo de ${SITE.shortName}`}
+              src="fulgor-restaurativo/institucional/institucional-identidad-01"
+              alt={`Identidad de ${SITE.shortName}`}
               aspectRatio="4 / 3"
             />
           </Reveal>
@@ -112,7 +112,7 @@ function Nosotros() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Reveal>
               <Card className="p-6 h-full">
-                <Compass className="text-primary-600 mb-4" size={28} aria-hidden="true" />
+                <Compass className="text-accent-600 mb-4" size={28} aria-hidden="true" />
                 <h3 className="font-display text-lg text-primary-900 mb-2">Nuestra naturaleza</h3>
                 <p className="text-sm text-text-muted leading-relaxed">
                   Somos una organización civil sin ánimo de lucro. No distribuimos utilidades
@@ -123,7 +123,7 @@ function Nosotros() {
             </Reveal>
             <Reveal delay={0.08}>
               <Card className="p-6 h-full">
-                <RefreshCw className="text-primary-600 mb-4" size={28} aria-hidden="true" />
+                <RefreshCw className="text-accent-600 mb-4" size={28} aria-hidden="true" />
                 <h3 className="font-display text-lg text-primary-900 mb-2">
                   Nuestra forma de trabajar
                 </h3>
@@ -143,7 +143,7 @@ function Nosotros() {
             </Reveal>
             <Reveal delay={0.16}>
               <Card className="p-6 h-full">
-                <Users2 className="text-primary-600 mb-4" size={28} aria-hidden="true" />
+                <Users2 className="text-accent-600 mb-4" size={28} aria-hidden="true" />
                 <h3 className="font-display text-lg text-primary-900 mb-2">
                   Poblaciones con las que trabajamos
                 </h3>
@@ -184,10 +184,14 @@ function Nosotros() {
       <section className="bg-bg-alt">
         <div className="max-w-[var(--fulgor-container-max)] mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <Reveal>
-            <PlaceholderImage aspectRatio="4 / 3" />
+            <PlaceholderImage
+              src="fulgor-restaurativo/institucional/institucional-compromiso-01"
+              alt={`Compromiso social de ${SITE.shortName}`}
+              aspectRatio="4 / 3"
+            />
           </Reveal>
           <Reveal delay={0.1}>
-            <HandHeart className="text-primary-600 mb-4" size={28} aria-hidden="true" />
+            <HandHeart className="text-accent-600 mb-4" size={28} aria-hidden="true" />
             <h2 className="font-display text-2xl text-primary-900 mb-4">Compromiso social</h2>
             <p className="text-text-muted leading-relaxed">
               Entendemos nuestro trabajo no como asistencia, sino como acompañamiento. Creemos

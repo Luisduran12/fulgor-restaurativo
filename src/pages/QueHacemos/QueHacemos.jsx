@@ -23,10 +23,15 @@ function QueHacemos() {
       <section className="bg-bg">
         <div className="max-w-[var(--fulgor-container-max)] mx-auto px-6 py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {ACTION_AREAS.map(({ id, icon: Icon, title, description }, index) => (
+            {ACTION_AREAS.map(({ id, icon: Icon, title, description, image }, index) => (
               <Reveal key={id} delay={(index % 3) * 0.08}>
                 <Card className="overflow-hidden h-full flex flex-col">
-                  <PlaceholderImage aspectRatio="16 / 9" rounded="rounded-t-lg" />
+                  <PlaceholderImage
+                    src={image}
+                    alt={title}
+                    aspectRatio="16 / 9"
+                    rounded="rounded-t-lg"
+                  />
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="-mt-12 mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent-500 text-primary-900 shadow-md self-start">
                       <Icon size={22} aria-hidden="true" />

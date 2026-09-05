@@ -67,7 +67,7 @@ function MisionVision() {
         <div className="max-w-[var(--fulgor-container-max)] mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-8">
           <Reveal>
             <Card className="p-8 h-full">
-              <Target className="text-primary-600 mb-4" size={32} aria-hidden="true" />
+              <Target className="text-accent-600 mb-4" size={32} aria-hidden="true" />
               <h2 className="font-display text-2xl text-primary-900 mb-4">Misión</h2>
               <p className="text-text-muted leading-relaxed">
                 La Fundación ONG Fulgor Restaurativo tiene como misión promover el desarrollo
@@ -92,7 +92,7 @@ function MisionVision() {
           </Reveal>
           <Reveal delay={0.1}>
             <Card className="p-8 h-full">
-              <Eye className="text-primary-600 mb-4" size={32} aria-hidden="true" />
+              <Eye className="text-accent-600 mb-4" size={32} aria-hidden="true" />
               <h2 className="font-display text-2xl text-primary-900 mb-4">Visión 2030</h2>
               <p className="text-text-muted leading-relaxed">
                 Para el año 2030, la Fundación ONG Fulgor Restaurativo será una organización
@@ -125,7 +125,7 @@ function MisionVision() {
             {ENFOQUES.map(({ id, icon: Icon, title, description }, index) => (
               <Reveal key={id} delay={(index % 3) * 0.08}>
                 <Card className="p-6 h-full">
-                  <Icon className="text-primary-600 mb-4" size={26} aria-hidden="true" />
+                  <Icon className="text-accent-600 mb-4" size={26} aria-hidden="true" />
                   <h3 className="font-display text-base text-primary-900 mb-2">{title}</h3>
                   <p className="text-sm text-text-muted leading-relaxed">{description}</p>
                 </Card>

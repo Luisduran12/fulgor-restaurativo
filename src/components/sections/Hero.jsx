@@ -14,7 +14,12 @@ function Hero() {
   const heroImageSrc = resolveImageSrc(HERO_IMAGE, { width: 1920 })
 
   return (
-    <section className="relative overflow-hidden bg-primary-900 text-white">
+    <section
+      className="relative overflow-hidden text-white"
+      style={{
+        background: 'linear-gradient(135deg, var(--fulgor-primary-900), var(--fulgor-primary-500))',
+      }}
+    >
       {heroImageSrc && (
         <div className="absolute inset-0">
           <img src={heroImageSrc} alt="" className="h-full w-full object-cover" />

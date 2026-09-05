@@ -9,7 +9,7 @@ const VARIANT_CLASSES = {
   accent:
     'bg-accent-500 text-primary-900 hover:bg-accent-400 focus-visible:outline-primary-700',
   outline:
-    'bg-transparent text-primary-700 border border-primary-300 hover:bg-primary-50',
+    'bg-transparent text-accent-500 border border-accent-500 hover:bg-accent-50',
   'outline-inverse':
     'bg-transparent text-white border border-white/40 hover:bg-white/10',
   ghost: 'bg-transparent text-primary-700 hover:bg-primary-50',

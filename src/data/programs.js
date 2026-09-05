@@ -15,6 +15,6 @@ export const PROGRAMS = [
     population: 'Familias, jóvenes y comunidades en condición de vulnerabilidad',
     place: 'Cúcuta y Norte de Santander',
     status: 'Activo',
-    image: 'fulgor-restaurativo/proyectos/proyectos-mi-programa',
+    image: 'fulgor-restaurativo/proyectos/proyectos-restauracion-01',
   },
 ]

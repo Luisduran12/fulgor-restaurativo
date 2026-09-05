@@ -18,14 +18,14 @@ import { resolveImageSrc } from '../../services/cloudinary/buildImageUrl'
  * redondeado para que se vea intencional en vez de un recuadro suelto.
  */
 function Logo({ theme = 'light', className = '' }) {
-  const logoSrc = resolveImageSrc(SITE.logo, { height: 112, crop: 'fit' })
+  const logoSrc = resolveImageSrc(SITE.logo, { height: 140, crop: 'fit' })
   const isDark = theme === 'dark'
 
   const image = (
     <img
       src={logoSrc}
       alt={SITE.shortName}
-      className="h-auto max-h-14 w-auto object-contain"
+      className="h-[52px] w-auto object-contain"
     />
   )
 

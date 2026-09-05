@@ -26,7 +26,7 @@ function ActionAreas() {
           {FEATURED_AREAS.map(({ id, icon: Icon, title, description }, index) => (
             <Reveal key={id} delay={(index % 3) * 0.08}>
               <Card className="p-6 h-full">
-                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary-50 text-primary-600">
+                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent-500 text-primary-900">
                   <Icon size={22} aria-hidden="true" />
                 </div>
                 <h3 className="font-display text-lg text-primary-900 mb-2">{title}</h3>
